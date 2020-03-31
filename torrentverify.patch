@@ -1,0 +1,27 @@
+--- torrentverify/torrentverify.py.original	2020-03-25 12:40:48.000000000 +0000
++++ torrentverify/torrentverify.py	2020-03-25 12:40:27.000000000 +0000
+@@ -58,14 +58,7 @@
+ # shutil.get_terminal_size() only available in Python 3.3
+ # https://docs.python.org/3/library/shutil.html#querying-the-size-of-the-output-terminal
+ # print(sys.version_info)
+-if sys.version_info < (3, 3, 0):
+-  # Disable long text-line chopping
+-  __cols = -1
+-  print('[NOTE] Your Python version is lower than 3.3.0. Terminal size cannot be determined.')
+-  print('[NOTE] Chopping of long text lines disabled.')
+-else:
+-  __cols, __lines = shutil.get_terminal_size()
+-  # print('{0} cols and {1} lines'.format(__cols, __lines))
++__cols = -1
+ 
+ # --- Bdecoder ----------------------------------------------------------------
+ class DecodingError(Exception):
+@@ -468,7 +461,7 @@
+         # Always confirm with user
+         delete_file, force_delete = confirm_file_action('Delete', 'deleted', force_delete)
+         if delete_file:
+-          os.unlink(torrent.file_length_list[i])
++          os.unlink(filename_path)
+           num_deleted_files += 1
+ 
+     # --- Truncate bigger size files

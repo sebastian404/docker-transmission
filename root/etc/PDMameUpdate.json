@@ -1,0 +1,9 @@
+{
+    "mame-directory":"/path/to/your/local/mame/files/target/folder",
+    "torrent-directory":"/path/to/your/local/mame/torrent/target/folder",
+    "transmission-user":"user",
+    "transmission-password":"pass",
+    "pleasuredome-user":"user",
+    "pleasuredome-password":"pass",
+    "transmission-port":8080
+}
